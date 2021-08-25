@@ -1,8 +1,8 @@
-package com.example.ilabanktestapp.model
+package com.example.ilabanktestapp.data.model
 
 import androidx.annotation.DrawableRes
 
-data class CarouselListData(
+data class CarouselImageListData(
     val id: Int,
     val carouselDataId: Int,
     @DrawableRes val image: Int,

@@ -5,7 +5,7 @@
 
         <variable
             name="carouselData"
-            type="com.example.ilabanktestapp.model.CarouselData" />
+            type="com.example.ilabanktestapp.data.model.CarouselImageData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

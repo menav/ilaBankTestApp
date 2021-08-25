@@ -1,23 +1,25 @@
-package com.example.ilabanktestapp.repository
+package com.example.ilabanktestapp.data.repository
 
 import com.example.ilabanktestapp.R
-import com.example.ilabanktestapp.model.CarouselData
-import com.example.ilabanktestapp.model.CarouselListData
+import com.example.ilabanktestapp.data.model.CarouselImageData
+import com.example.ilabanktestapp.data.model.CarouselImageListData
 
-class DashboardRepository {
+class DetailsRepository {
 
-    private val data = mutableListOf<CarouselData>()
+    private val data = mutableListOf<CarouselImageData>()
 
+
+    /*add dynamic value on carousel */
     fun generateDynamicCarouselData(
         carouselCount: Int = 1,
         carouselItemCount: Int = 1
-    ): List<CarouselData> {
+    ): List<CarouselImageData> {
         data.clear()
         for (i in 1..carouselCount) {
-            val tempCarouseItem = mutableListOf<CarouselListData>()
+            val tempCarouseItem = mutableListOf<CarouselImageListData>()
             for (j in 1..carouselItemCount) {
                 tempCarouseItem.add(
-                    CarouselListData(
+                    CarouselImageListData(
                         id = i,
                         carouselDataId = j,
                         image = R.drawable.ic_balance,
@@ -26,7 +28,7 @@ class DashboardRepository {
                 )
             }
             data.add(
-                CarouselData(
+                CarouselImageData(
                     carouselId = i,
                     carouselImage = R.mipmap.ic_screen,
                     data = tempCarouseItem

@@ -1,8 +1,8 @@
-package com.example.ilabanktestapp.view.main
+package com.example.ilabanktestapp.ui.main
 
 import androidx.databinding.ViewDataBinding
 import com.example.ilabanktestapp.R
-import com.example.ilabanktestapp.view.base.BaseActivity
+import com.example.ilabanktestapp.ui.base.BaseActivity
 
 class MainActivity : BaseActivity() {
 

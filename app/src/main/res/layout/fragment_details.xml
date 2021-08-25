@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.ilabanktestapp.viewmodels.DashboardViewModel" />
+            type="com.example.ilabanktestapp.viewmodels.DetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.motion.widget.MotionLayout xmlns:app="http://schemas.android.com/apk/res-auto"

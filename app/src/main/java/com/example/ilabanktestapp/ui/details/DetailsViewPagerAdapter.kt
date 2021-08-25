@@ -1,4 +1,4 @@
-package com.example.ilabanktestapp.view.dashboard
+package com.example.ilabanktestapp.ui.details
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
 import com.example.ilabanktestapp.R
 import com.example.ilabanktestapp.databinding.ItemCarouselBinding
-import com.example.ilabanktestapp.model.CarouselData
+import com.example.ilabanktestapp.data.model.CarouselImageData
 
 
-class DashboardViewPagerAdapter : PagerAdapter() {
+class DetailsViewPagerAdapter : PagerAdapter() {
 
-    var dataList: List<CarouselData> = arrayListOf()
+    var imageDataList: List<CarouselImageData> = arrayListOf()
 
     override fun isViewFromObject(view: View, Object: Any): Boolean {
         return view === Object as ConstraintLayout
@@ -27,20 +27,20 @@ class DashboardViewPagerAdapter : PagerAdapter() {
             false
         )
 
-        binding.ivCarousalImage.setImageResource(dataList[position].carouselImage)
+        binding.ivCarousalImage.setImageResource(imageDataList[position].carouselImage)
         container.addView(binding.root)
         return binding.root
     }
 
-    override fun getCount(): Int = dataList.size
+    override fun getCount(): Int = imageDataList.size
 
     override fun destroyItem(container: ViewGroup, position: Int, Object: Any) {
         container.removeView(Object as ConstraintLayout)
     }
 
 
-    fun addItems(list: List<CarouselData>) {
-        dataList = list
+    fun addItems(list: List<CarouselImageData>) {
+        imageDataList = list
         notifyDataSetChanged()
     }
 }

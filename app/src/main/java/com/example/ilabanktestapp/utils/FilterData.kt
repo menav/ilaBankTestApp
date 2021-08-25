@@ -1,19 +1,19 @@
 package com.example.ilabanktestapp.utils
 
 import android.widget.Filter
-import com.example.ilabanktestapp.model.CarouselListData
+import com.example.ilabanktestapp.data.model.CarouselImageListData
 
 class FilterData<T>(
-    private val dataList: List<CarouselListData>,
+    private val dataImageList: List<CarouselImageListData>,
     val onFilter: (List<T>) -> Unit
 ) : Filter() {
     override fun performFiltering(ch: CharSequence?): FilterResults {
-        var filteredList = mutableListOf<CarouselListData>()
+        var filteredList = mutableListOf<CarouselImageListData>()
 
         if (ch.isNullOrEmpty()) {
-            filteredList = dataList.toMutableList()
+            filteredList = dataImageList.toMutableList()
         } else {
-            for (i in dataList) {
+            for (i in dataImageList) {
                 if (i.label.contains(ch, ignoreCase = true))
                     filteredList.add(i)
             }

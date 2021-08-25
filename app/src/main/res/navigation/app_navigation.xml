@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.ilabanktestapp.view.splash.SplashFragment"
+        android:name="com.example.ilabanktestapp.ui.splash.SplashFragment"
         android:label="SplashFragment">
         <action
             android:id="@+id/action_splash_to_dashboardFragment"
@@ -16,6 +16,6 @@
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.ilabanktestapp.view.dashboard.DashboardFragment"
+        android:name="com.example.ilabanktestapp.ui.details.DetailsFragment"
         android:label="DashboardFragment" />
 </navigation>

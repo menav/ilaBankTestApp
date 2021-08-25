@@ -1,4 +1,4 @@
-package com.example.ilabanktestapp.view.base;
+package com.example.ilabanktestapp.ui.base;
 
 
 import androidx.databinding.ViewDataBinding;

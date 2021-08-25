@@ -1,4 +1,4 @@
-package com.example.ilabanktestapp.view.dashboard
+package com.example.ilabanktestapp.ui.details
 
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -8,30 +8,30 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.viewpager.widget.ViewPager
 import com.example.ilabanktestapp.R
-import com.example.ilabanktestapp.databinding.FragmentDashboardBinding
+import com.example.ilabanktestapp.databinding.FragmentDetailsBinding
 import com.example.ilabanktestapp.utils.TextAfterChange
+import com.example.ilabanktestapp.ui.base.BaseFragment
+import com.example.ilabanktestapp.ui.main.MainActivity
 import com.example.ilabanktestapp.utils.gone
 import com.example.ilabanktestapp.utils.hideKeyboard
 import com.example.ilabanktestapp.utils.visible
-import com.example.ilabanktestapp.view.base.BaseFragment
-import com.example.ilabanktestapp.view.main.MainActivity
-import com.example.ilabanktestapp.viewmodels.DashboardViewModel
+import com.example.ilabanktestapp.viewmodels.DetailsViewModel
 
 
-class DashboardFragment : BaseFragment() {
+class DetailsFragment : BaseFragment() {
 
 
-    private lateinit var mViewBinding: FragmentDashboardBinding
+    private lateinit var mViewBinding: FragmentDetailsBinding
     private lateinit var dashboardRecyclerAdapter: DashboardRecyclerAdapter
-    private lateinit var dashboardViewPagerAdapter: DashboardViewPagerAdapter
-    private val mViewModel: DashboardViewModel by activityViewModels()
+    private lateinit var detailsViewPagerAdapter: DetailsViewPagerAdapter
+    private val mViewModel: DetailsViewModel by activityViewModels()
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_dashboard
+        return R.layout.fragment_details
     }
 
     override fun onViewsInitialized(binding: ViewDataBinding, view: View) {
-        mViewBinding = binding as FragmentDashboardBinding
+        mViewBinding = binding as FragmentDetailsBinding
         setListeners()
         setObservers()
         setViewPager()
@@ -45,8 +45,8 @@ class DashboardFragment : BaseFragment() {
 
 
     private fun setViewPager() {
-        dashboardViewPagerAdapter = DashboardViewPagerAdapter()
-        mViewBinding.vpCarousel.adapter = dashboardViewPagerAdapter
+        detailsViewPagerAdapter = DetailsViewPagerAdapter()
+        mViewBinding.vpCarousel.adapter = detailsViewPagerAdapter
         mViewBinding.tlBottomDots.setupWithViewPager(mViewBinding.vpCarousel, true)
     }
 
@@ -118,11 +118,11 @@ class DashboardFragment : BaseFragment() {
 
 
     private fun setObservers() {
-        mViewModel.carouselData.observe(viewLifecycleOwner, {
-            dashboardViewPagerAdapter.addItems(it)
+        mViewModel.carouselImageData.observe(viewLifecycleOwner, {
+            detailsViewPagerAdapter.addItems(it)
         })
 
-        mViewModel.selectedCarouselListData.observe(viewLifecycleOwner, {
+        mViewModel.selectedCarouselImageListData.observe(viewLifecycleOwner, {
             dashboardRecyclerAdapter.setOriginalList(it)
         })
     }

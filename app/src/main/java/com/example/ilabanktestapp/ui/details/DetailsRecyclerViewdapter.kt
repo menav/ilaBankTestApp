@@ -1,4 +1,4 @@
-package com.example.ilabanktestapp.view.dashboard
+package com.example.ilabanktestapp.ui.details
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,18 +9,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ilabanktestapp.R
 import com.example.ilabanktestapp.databinding.ItemCarouselListBinding
-import com.example.ilabanktestapp.model.CarouselListData
+import com.example.ilabanktestapp.data.model.CarouselImageListData
 import com.example.ilabanktestapp.utils.CarouselListDataItemCallback
 import com.example.ilabanktestapp.utils.FilterData
 
-
 class DashboardRecyclerAdapter(val showEmptyView: (Boolean) -> Unit) :
-    ListAdapter<CarouselListData, DashboardRecyclerAdapter.DashboardRecyclerViewHolder>(
+    ListAdapter<CarouselImageListData, DashboardRecyclerAdapter.DashboardRecyclerViewHolder>(
         CarouselListDataItemCallback()
     ),
     Filterable {
 
-    var dataList = listOf<CarouselListData>()
+    var dataList = listOf<CarouselImageListData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardRecyclerViewHolder {
         val binding = DataBindingUtil.inflate<ItemCarouselListBinding>(
@@ -37,21 +36,21 @@ class DashboardRecyclerAdapter(val showEmptyView: (Boolean) -> Unit) :
     }
 
 
-    fun setOriginalList(data: List<CarouselListData>) {
+    fun setOriginalList(data: List<CarouselImageListData>) {
         dataList = data
         submitList(data)
     }
 
     class DashboardRecyclerViewHolder(private val mBinding: ItemCarouselListBinding) :
         RecyclerView.ViewHolder(mBinding.root) {
-        fun bind(carouselListItemData: CarouselListData) {
-            mBinding.carouseListItemData = carouselListItemData
+        fun bind(carouselImageListItemData: CarouselImageListData) {
+            mBinding.carouseListItemData = carouselImageListItemData
             mBinding.executePendingBindings()
         }
     }
 
     override fun getFilter(): Filter {
-        return FilterData<CarouselListData>(dataList) {
+        return FilterData<CarouselImageListData>(dataList) {
             submitList(it)
             showEmptyView(it.isNullOrEmpty())
         }
